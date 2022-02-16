@@ -1,0 +1,24 @@
+$ nano foo.js
+$ run foo.js -t 100 arg1 arg2 arg3
+exec("foo.js", "purchasedServer1", "100", "randomArg");
+
+export async function main(ns) {
+ns.print("Starting script here");
+await ns.hack("foodnstuff"); //Use Netscript hack function
+ns.print(ns.args); //The script arguments must be prefaced with ns as
+˓→well
+}
+
+//foo.js
+let globalVariable;
+export async function main(ns) {
+globalVariable = ns.args.length;
+while(true) {
+ns.tprint(globalVariable);
+await ns.sleep(3000);
+}
+}
+
+$ run foo.js 1
+$ run foo.js 1 2 3
+$ run foo.js 1 2 3 4 5
